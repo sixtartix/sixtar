@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sixtar_tix - Développeur de bots Discord</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="stars"></div>
     <header>
-        <h1>Sixtar_tix</h1>
+        <div class="logo">
+            <img src="placeholder-profile.jpg" alt="Photo de profil" class="profile-pic">
+            <h1>Sixtar</h1>
+        </div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#a-propos">À propos</a></li>
                 <li><a href="#creations">Mes créations</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#tarifs">Tarifs</a></li>
             </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
@@ -45,17 +54,6 @@
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email : sixtar_dev@gmail.com</p>
-            <form>
-                <input type="text" placeholder="Nom" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-
         <section id="blog">
             <h2>Blog</h2>
             <article>
@@ -78,7 +76,13 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Sixtar_tix. Tous droits réservés.</p>
+        <div class="contact">
+            <h3>Contact</h3>
+            <p><i class="fas fa-envelope"></i> sixtar_dev@gmail.com</p>
+        </div>
+        <p class="copyright">&copy; 2024 Sixtar_tix. Tous droits réservés.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
