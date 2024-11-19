@@ -1,0 +1,128 @@
+/* Styles de base */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    z-index: 10;
+}
+
+header .brand {
+    margin-left: 200px; /* Distance du bord gauche */
+    font-size: 24px;
+    color: #8b00ff;
+    text-shadow: 0 0 10px #8b00ff;
+}
+
+header .logo {
+    margin-right: 200px; /* Distance du bord droit */
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #8b00ff;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav li {
+    position: relative;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav li:hover, nav .active {
+    color: #8b00ff;
+}
+
+nav .active::after, nav li:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 5px;
+    background: #8b00ff;
+    box-shadow: 0 0 10px #8b00ff;
+}
+
+
+/* Main Content */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.text p:first-of-type {
+    font-size: 18px;
+    color: #8b00ff;
+    margin: 0;
+}
+
+.text h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.text .dev {
+    font-size: 24px;
+    background: linear-gradient(90deg, #8b00ff, #ff00ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-fade 3s infinite;
+}
+
+.text p:last-of-type {
+    color: white;
+    font-size: 18px;
+}
+
+.profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #8b00ff;
+    box-shadow: 0 0 30px #8b00ff;
+}
+
+/* Animation */
+@keyframes text-fade {
+    0% { content: "arduino"; }
+    33% { content: "web dev"; }
+    66% { content: "discord bot"; }
+    100% { content: "arduino"; }
+}
