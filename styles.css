@@ -195,12 +195,13 @@ main {
 
   /* Ajouter ce media query à la fin de votre fichier CSS existant */
 @media screen and (max-width: 768px) {
+    
 
     header .brand {
         margin-left: 10px;
         font-size: 24px;
         color: #8b00ff;
-        padding: 0px 225px 0px 0px;
+        padding: 0px 48% 0px 0px;
     }
     /* Cache la navigation dans le header en mobile uniquement */
     header nav {
@@ -220,8 +221,8 @@ main {
 
     /* Ajuste la taille de l'image en mobile uniquement */
     .profile-image img {
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
     }
 
     /* Ajoute le menu de navigation en bas en mobile uniquement */
@@ -271,7 +272,7 @@ main {
     main {
         padding-bottom: 50px;
     }
-}
+
 
     /* Centre le texte sous l'image en mobile */
     .text {

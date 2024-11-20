@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", typeEffect);
 // Effet Ripple
 const easterEgg = document.querySelector(".easter-egg");
 
-easterEgg.addEventListener("click", function (event) {
+easterEgg.addEventListener("click", function () {
     console.log("Etoile cliquée !");
 
     // Créer deux éléments span pour l'effet ripple
@@ -43,20 +43,26 @@ easterEgg.addEventListener("click", function (event) {
     const ripple2 = document.createElement('span');
     ripple2.classList.add('ripple-effect');
 
-    // Récupérer la position de l'étoile
-    const easterEggRect = easterEgg.getBoundingClientRect();
+    // Récupérer la taille de la fenêtre
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
 
-    // Positionner le ripple1 en bas à gauche
-    ripple1.style.left = `${easterEggRect.left - ripple1.offsetWidth / 2}px`; // À gauche
-    ripple1.style.top = `${easterEggRect.top + easterEggRect.height - ripple1.offsetHeight / 2}px`; // En bas
+    // Calculer les positions pour que les ripples partent du bas-centre
+    const rippleCenterX = windowWidth / 2; // Centre horizontal de la page
+    const rippleCenterY = windowHeight; // Bas de la page
 
-    // Positionner le ripple2 en bas à droite
-    ripple2.style.left = `${easterEggRect.left + easterEggRect.width - ripple2.offsetWidth / 2}px`; // À droite
-    ripple2.style.top = `${easterEggRect.top + easterEggRect.height - ripple2.offsetHeight / 2}px`; // En bas
+    // Positionner les ripples
+    // Ripple 1 - Bas-centre légèrement à gauche
+    ripple1.style.left = `${rippleCenterX - 60}px`; // Décalage à gauche (ajustable)
+    ripple1.style.top = `${rippleCenterY - 100}px`; // Légèrement au-dessus du bord bas
 
-    // Ajouter les deux ripples à l'étoile
-    easterEgg.appendChild(ripple1);
-    easterEgg.appendChild(ripple2);
+    // Ripple 2 - Bas-centre légèrement à droite
+    ripple2.style.left = `${rippleCenterX + 60}px`; // Décalage à droite (ajustable)
+    ripple2.style.top = `${rippleCenterY - 100}px`; // Légèrement au-dessus du bord bas
+
+    // Ajouter les deux ripples au document
+    document.body.appendChild(ripple1);
+    document.body.appendChild(ripple2);
 
     // Supprimer les éléments ripple après l'animation
     setTimeout(() => {
@@ -64,3 +70,4 @@ easterEgg.addEventListener("click", function (event) {
         ripple2.remove();
     }, 1000); // Durée de l'animation (1 seconde)
 });
+
