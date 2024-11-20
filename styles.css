@@ -1,34 +1,28 @@
-/* Styles de base */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #fff;
-    overflow-x: hidden;
-}
-
 /* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    position: fixed;
+    margin: 0 auto;
+    padding: 5px 0;
     width: 100%;
-    top: 0;
-
-    z-index: 10;
+    background-color: #121212;
 }
 
 header .brand {
-    margin-left: 200px; /* Distance du bord gauche */
+    margin-left: 350px;
     font-size: 24px;
     color: #8b00ff;
-    text-shadow: 0 0 10px #8b00ff;
+}
+
+body {
+   background-color: #121212;
+   overflow: hidden;
+   font-family: 'Work Sans', sans-serif;
 }
 
 header .logo {
-    margin-right: 200px; /* Distance du bord droit */
+    margin-right: 350px;
 }
 
 header .logo img {
@@ -47,17 +41,21 @@ nav ul {
 
 nav li {
     position: relative;
-    color: white;
+    color: #373e52;
     cursor: pointer;
     font-size: 18px;
     transition: color 0.3s ease;
 }
 
-nav li:hover, nav .active {
+nav li:hover {
+    color: gray;
+}
+
+nav .active {
     color: #8b00ff;
 }
 
-nav .active::after, nav li:hover::after {
+nav .active::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -66,24 +64,34 @@ nav .active::after, nav li:hover::after {
     height: 3px;
     border-radius: 5px;
     background: #8b00ff;
-    box-shadow: 0 0 10px #8b00ff;
 }
 
+nav li:hover::after {
+    content: none;
+}
 
 /* Main Content */
 main {
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: calc(100vh - 200px);
+    padding: 20px 0;
     text-align: center;
-    margin-top: 80px;
 }
 
 .content {
     display: flex;
-    gap: 50px;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 100px;
+}
+
+.text {
+    text-align: left; /* Align text to the right */
+    max-width: 50%; /* Limit text width to prevent overstretching */
 }
 
 .text p:first-of-type {
@@ -96,14 +104,7 @@ main {
     font-size: 40px;
     font-weight: bold;
     margin: 5px 0;
-}
-
-.text .dev {
-    font-size: 24px;
-    background: linear-gradient(90deg, #8b00ff, #ff00ff);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: text-fade 3s infinite;
+    color: white;
 }
 
 .text p:last-of-type {
@@ -111,18 +112,171 @@ main {
     font-size: 18px;
 }
 
+/* Photo de profil */
 .profile-image img {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
     border: 5px solid #8b00ff;
-    box-shadow: 0 0 30px #8b00ff;
+    box-shadow: 0 0 50px #8b00ff;
 }
 
-/* Animation */
-@keyframes text-fade {
-    0% { content: "arduino"; }
-    33% { content: "web dev"; }
-    66% { content: "discord bot"; }
-    100% { content: "arduino"; }
+.dynamic-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Ajustez la couleur à votre choix */
+    border-right: 2px solid #333; /* Ajoute le curseur de saisie */
+    animation: blink-caret 0.7s step-end infinite;
+}
+
+/* Animation pour le curseur clignotant */
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.dynamic-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: transparent; /* Nécessaire pour voir le dégradé */
+    background-image: linear-gradient(to left, #8b00ff, white);
+    -webkit-background-clip: text; /* Applique le dégradé au texte */
+    background-clip: text;
+    animation: gradient-shift 5s infinite; /* Optionnel : ajoute une animation douce */
+}
+
+/* Optionnel : Animation du dégradé (ralenti pour un effet dynamique) */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+  /* Assurez-vous que l'étoile reste au bon endroit dans le texte */
+  .easter-egg {
+    display: inline; /* Assurez-vous que l'étoile est intégrée dans le texte */
+    cursor: pointer;
+  }
+
+/* Effet ripple */
+@keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  .ripple-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 0, 255, 0.3); /* Couleur de l'onde */
+    border-radius: 50%;
+    animation: ripple 1s ease-out;
+    pointer-events: none; /* L'élément ripple ne bloque pas les autres événements */
+  }
+
+  footer {
+    display: none
+  }
+
+  /* Ajouter ce media query à la fin de votre fichier CSS existant */
+@media screen and (max-width: 768px) {
+
+    header .brand {
+        margin-left: 10px;
+        font-size: 24px;
+        color: #8b00ff;
+        padding: 0px 225px 0px 0px;
+    }
+    /* Cache la navigation dans le header en mobile uniquement */
+    header nav {
+        display: none;
+    }
+
+    
+
+    /* Réorganise le contenu en mobile uniquement */
+    .content {
+        flex-direction: column;
+    }
+
+    footer {
+        display: contents;
+      }
+
+    /* Ajuste la taille de l'image en mobile uniquement */
+    .profile-image img {
+        width: 350px;
+        height: 350px;
+    }
+
+    /* Ajoute le menu de navigation en bas en mobile uniquement */
+    footer {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        background-color: #121212;
+        padding: 15px 0;
+        border-top: 1px solid #8b00ff;
+    }
+
+    footer nav ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin: 0;
+        padding: 0 30px;
+    }
+
+    footer nav li {
+        color: #373e52;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        padding: 0 10px;
+    }
+
+    footer nav li:hover {
+        color: gray;
+    }
+
+    footer nav .active {
+        color: #8b00ff;
+    }
+
+    /* Style pour les icônes Material */
+    .material-icons-round {
+        font-size: 28px; /* Taille des icônes */
+        transition: transform 0.2s ease;
+    }
+
+    footer nav li:hover .material-icons-round {
+        transform: scale(1.1); /* Effet d'agrandissement au survol */
+    }
+
+    /* Ajuste le padding du main */
+    main {
+        padding-bottom: 50px;
+    }
+}
+
+    /* Centre le texte sous l'image en mobile */
+    .text {
+        text-align: center;
+        max-width: 100%;
+        order: 2;
+    }
 }
