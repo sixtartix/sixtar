@@ -193,54 +193,55 @@ main {
     display: none
   }
 
-  /* Ajouter ce media query à la fin de votre fichier CSS existant */
-@media screen and (max-width: 768px) {
-    
-
+  @media screen and (max-width: 768px) {
     header .brand {
         margin-left: 10px;
         font-size: 24px;
         color: #8b00ff;
         padding: 0px 48% 0px 0px;
     }
+
     /* Cache la navigation dans le header en mobile uniquement */
     header nav {
         display: none;
     }
 
-    
+    body {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+    }
 
     /* Réorganise le contenu en mobile uniquement */
     .content {
+        display: flex;
         flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 10px; /* Ajoute un padding pour éviter que le contenu ne touche les bords */
     }
 
     footer {
-        display: contents;
-      }
-
-    /* Ajuste la taille de l'image en mobile uniquement */
-    .profile-image img {
-        width: 250px;
-        height: 250px;
-    }
-
-    /* Ajoute le menu de navigation en bas en mobile uniquement */
-    footer {
+        display: flex;
         position: fixed;
-        bottom: 10px;
+        bottom: 0;
         width: 100%;
         background-color: #121212;
         padding: 15px 0;
         border-top: 1px solid #8b00ff;
+        justify-content: center; /* Centre les éléments horizontalement */
     }
 
     footer nav ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-around; /* Espacement égal entre les éléments */
         list-style: none;
         margin: 0;
-        padding: 0 30px;
+        padding: 0;
+        width: 100%; /* Assure que les éléments prennent toute la largeur disponible */
     }
 
     footer nav li {
@@ -270,14 +271,26 @@ main {
 
     /* Ajuste le padding du main */
     main {
-        padding-bottom: 15%;
+        flex: 1;
+        padding-bottom: 60px; /* Hauteur du footer */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-
 
     /* Centre le texte sous l'image en mobile */
     .text {
         text-align: center;
         max-width: 100%;
         order: 2;
+        margin-top: 10px; /* Réduit l'espace entre l'image et le texte */
+    }
+
+    /* Ajuste la taille de l'image en mobile uniquement */
+    .profile-image img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px; /* Réduit l'espace entre l'image et le texte */
     }
 }
