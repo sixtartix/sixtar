@@ -221,7 +221,6 @@ main {
         flex: 1;
         justify-content: center;
         align-items: center;
-        padding: 10px; /* Ajoute un padding pour éviter que le contenu ne touche les bords */
     }
 
     footer {
@@ -284,13 +283,11 @@ main {
         text-align: center;
         max-width: 100%;
         order: 2;
-        margin-top: 10px; /* Réduit l'espace entre l'image et le texte */
     }
 
     /* Ajuste la taille de l'image en mobile uniquement */
     .profile-image img {
         max-width: 100%;
         height: auto;
-        margin-bottom: 10px; /* Réduit l'espace entre l'image et le texte */
     }
 }
